@@ -9,7 +9,7 @@ public class EnemyAi : MonoBehaviour
     public Transform target;
     public float speed = 200f;
     public float nextWaypointDistance = 3f;
-
+    public static bool isEnemyKilled = false;
     Path path;
     int currentWaypoint = 0;
     bool isEndofPath = false;
@@ -27,6 +27,8 @@ public class EnemyAi : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         InvokeRepeating("UpdatePath", 0f, .5f);
+
+        target = GameObject.Find("PlayerShip").transform;
        
     }
 
@@ -80,11 +82,11 @@ public class EnemyAi : MonoBehaviour
         {
             currentWaypoint++;
         }
-        if (force.x>= 0.01f)
+        if (force.x>= 0.01f && isEnemyKilled == false )
         {
             enemy.localScale = new Vector3(-1f, 1f, 1f);
         }
-        else if (force.x <= -0.01f)
+        else if (force.x <= -0.01f &&  isEnemyKilled == false) 
         {
             enemy.localScale = new Vector3(1f, 1f, 1f);
         }

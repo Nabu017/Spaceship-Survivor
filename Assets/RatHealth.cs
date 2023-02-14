@@ -12,6 +12,7 @@ public class RatHealth : MonoBehaviour
     {
         if(--hp <= 0)
         {
+            EnemyAi.isEnemyKilled = true;
             Destroy(gameObject);
         }
     }
