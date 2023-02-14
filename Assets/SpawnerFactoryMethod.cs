@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class SpawnerFactoryMethod : MonoBehaviour
 {
+    ObjectPool objectpooler;
 
+    private void Awake()
+    {
+        
+    }
     void Start() => StartCoroutine(SpawnCoroutine());
     // Start is called before the first frame update
+
    
-
-
+    private void FixedUpdate()
+    {
+    }
 
     IEnumerator SpawnCoroutine()
     {
@@ -17,7 +24,7 @@ public class SpawnerFactoryMethod : MonoBehaviour
         {
             for(int i = 0; i < 3; i++)
             {
-                EnemyFactory.Instance.CreateRat().transform.position = RandomPosition();
+               EnemyFactory.Instance.CreateRat().transform.position = RandomPosition();
             }
             yield return new WaitForSeconds(5);
         }

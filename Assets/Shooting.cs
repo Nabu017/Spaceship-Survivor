@@ -6,8 +6,15 @@ public class Shooting : MonoBehaviour
 {
     public Transform firepoint;
     public GameObject prefab;
+    ObjectPool objectpooler;
 
     public float bulletforce = 20f;
+
+
+    private void Start()
+    {
+        objectpooler = ObjectPool.Instance;
+    }
 
     // Update is called once per frame
     void Update()
@@ -20,7 +27,9 @@ public class Shooting : MonoBehaviour
 
     void Shoot()
     {
-      GameObject bullet =  Instantiate(prefab, firepoint.position, firepoint.rotation);
+
+        GameObject bullet = objectpooler.SpawnfromPool("Bullet", firepoint.position, firepoint.rotation);
+      //GameObject bullet =  Instantiate(prefab, firepoint.position, firepoint.rotation);
 
       Rigidbody2D rb =  bullet.GetComponent<Rigidbody2D>();
 
