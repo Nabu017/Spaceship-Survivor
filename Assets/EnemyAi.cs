@@ -29,7 +29,7 @@ public class EnemyAi : MonoBehaviour
         InvokeRepeating("UpdatePath", 0f, .5f);
 
         target = GameObject.Find("PlayerShip").transform;
-       
+    
     }
 
     void  UpdatePath()
@@ -54,17 +54,24 @@ public class EnemyAi : MonoBehaviour
     // Update is called once per frame
      void FixedUpdate()
     {
-        if(path == null)
+        FlipEnemy();
+    }
+
+    private void FlipEnemy()
+    {
+
+      
+        if (path == null)
         {
             return;
         }
 
 
-        if(currentWaypoint >= path.vectorPath.Count)
+        if (currentWaypoint >= path.vectorPath.Count)
         {
             isEndofPath = true;
             return;
-        } 
+        }
         else
         {
             isEndofPath = false;
@@ -78,17 +85,25 @@ public class EnemyAi : MonoBehaviour
 
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
 
-        if(distance < nextWaypointDistance)
+        if (distance < nextWaypointDistance)
         {
             currentWaypoint++;
         }
-        if (force.x>= 0.01f && isEnemyKilled == false )
+        if (force.x >= 0.01f && enemy != null)
         {
-            enemy.localScale = new Vector3(-1f, 1f, 1f);
+         
+            
+                enemy.localScale = new Vector3(-1f, 1f, 1f);
+            
+
         }
-        else if (force.x <= -0.01f &&  isEnemyKilled == false) 
+        else if (force.x <= -0.01f && enemy != null)
         {
+
+
             enemy.localScale = new Vector3(1f, 1f, 1f);
+
+
         }
     }
 }
