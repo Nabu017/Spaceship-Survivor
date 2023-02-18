@@ -14,11 +14,17 @@ public class PlayerMovement2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       movement.x = Input.GetAxisRaw("Horizontal");
+       
+
+    }
+
+    public void Movement()
+    {
+        movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         mousePos = myCamera.ScreenToWorldPoint(Input.mousePosition);
-        
     }
+
     private void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement * movespeed * Time.fixedDeltaTime);
