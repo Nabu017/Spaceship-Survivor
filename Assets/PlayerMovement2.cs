@@ -10,6 +10,10 @@ public class PlayerMovement2 : MonoBehaviour
     Vector2 mousePos;
     public Camera myCamera;
    
+   [SerializeField] private Transform worldlimit0;
+    [SerializeField] private Transform worldlimit1;
+    [SerializeField] private Transform worldlimit2;
+    [SerializeField] private Transform worldlimit3;
 
     // Update is called once per frame
     void Update()
@@ -41,4 +45,28 @@ public class PlayerMovement2 : MonoBehaviour
         Debug.Log("player hit");
     }
 
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("WorldLimit"))
+        {
+            //gameObject.transform.position = GameObject.FindGameObjectWithTag("WorldLimit1").transform.position ;
+            gameObject.transform.position = new Vector3(worldlimit1.position.x - 2, gameObject.transform.position.y, gameObject.transform.position.z);
+        }
+
+      if(collision.gameObject.CompareTag("WorldLimit1"))
+        {
+            gameObject.transform.position = new Vector3(worldlimit0.position.x + 2, gameObject.transform.position.y, gameObject.transform.position.z);
+        }
+      
+       /* if(collision.gameObject.CompareTag("WorldLimit2"))
+        {
+            gameObject.transform.position = new Vector3(worldlimit3.position.x , 2,0);
+        }
+         if(collision.gameObject.CompareTag("WorldLimit3"))
+        {
+            gameObject.transform.position = new Vector3(worldlimit2.position.x - 2,0,0);
+        }*/
+
+    }
 }

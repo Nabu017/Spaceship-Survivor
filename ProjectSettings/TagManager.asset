@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - WorldLimit
+  - WorldLimit2
+  - WorldLimit3
+  - WorldLimit1
   layers:
   - Default
   - TransparentFX
