@@ -8,6 +8,7 @@ TagManager:
   - WorldLimit2
   - WorldLimit3
   - WorldLimit1
+  - Enemy
   layers:
   - Default
   - TransparentFX

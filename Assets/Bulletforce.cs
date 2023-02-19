@@ -33,6 +33,13 @@ public class Bulletforce : MonoBehaviour
             Destroy(gameObject);
         }
 
+        var enemy2 = collision.GetComponent<WormHealth>();
+        if(enemy2)
+        {
+            enemy2.Damage();
+            Destroy(gameObject);
+        }
+
 
 
     }

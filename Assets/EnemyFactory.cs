@@ -6,6 +6,7 @@ public class EnemyFactory : MonoBehaviour
 {
     public static EnemyFactory Instance { get; private set; }
     [SerializeField] GameObject Rat;
+    [SerializeField] GameObject Worm;
 
 
 
@@ -28,5 +29,12 @@ public class EnemyFactory : MonoBehaviour
         GameObject enemyRat = Rat;
 
         return Instantiate(enemyRat, Vector3.zero, Quaternion.identity);
+    }
+
+    public GameObject CreateWorm()
+    {
+        GameObject enemyWorm = Worm;
+
+        return Instantiate(Worm, Vector3.zero, Quaternion.identity);
     }
 }

@@ -908,8 +908,8 @@ MonoBehaviour:
   myCamera: {fileID: 70022598}
   worldlimit0: {fileID: 546895999}
   worldlimit1: {fileID: 835124679}
-  worldlimit2: {fileID: 2010217703}
-  worldlimit3: {fileID: 444924481}
+  worldlimitUp: {fileID: 444924481}
+  worldlimitDown: {fileID: 2010217703}
 --- !u!50 &295875471
 Rigidbody2D:
   serializedVersion: 4
@@ -969,7 +969,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1653,7 +1653,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -33.78043}
@@ -2679,7 +2679,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -32.904427}
@@ -2752,6 +2752,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rat: {fileID: 1042044489344568287, guid: c22f2a9b7931dac4d9fb32876b35ed37, type: 3}
+  Worm: {fileID: 3277534276337435038, guid: 41cce8cd8717f1b4d8e7c11176c2f453, type: 3}
 --- !u!4 &862953917
 Transform:
   m_ObjectHideFlags: 0
