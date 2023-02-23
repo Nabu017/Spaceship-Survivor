@@ -15,7 +15,7 @@ public class EnemyAi : MonoBehaviour
     bool isEndofPath = false;
 
     public Transform enemy;
-
+    PlayerMovement2 playerdeath;
 
     Seeker seeker;
     Rigidbody2D rb;
@@ -28,13 +28,23 @@ public class EnemyAi : MonoBehaviour
 
         InvokeRepeating("UpdatePath", 0f, .5f);
 
-        target = GameObject.Find("PlayerShip").transform;
+      
+        
+            target = GameObject.Find("PlayerShip").transform;
+
+
+      
+            
+        
+      
+        
+       
     
     }
 
     void  UpdatePath()
     {
-        if(seeker.IsDone())
+        if (seeker.IsDone() && target != null)
         {
             seeker.StartPath(rb.position, target.position, OnPathComplete);
         }
@@ -55,6 +65,7 @@ public class EnemyAi : MonoBehaviour
      void FixedUpdate()
     {
         FlipEnemy();
+       
     }
 
     private void FlipEnemy()

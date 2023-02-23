@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class MovementEnabler : MonoBehaviour
 {
    [SerializeField] public PlayerMovement2 playermovement;
 
+    //[Inject]
     MovementInvoker movementInvoker;
 
     
@@ -20,6 +22,7 @@ public class MovementEnabler : MonoBehaviour
     void Update()
     {
         ICommand command = new MovePlayerCommand(playermovement);
+        
         movementInvoker.addCommand(command);
 
 

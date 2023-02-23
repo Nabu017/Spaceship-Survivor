@@ -9,21 +9,30 @@ public class EnemyBulletScript : MonoBehaviour
 
    [SerializeField] private Rigidbody2D rigid;
     public float force;
+    
     // Start is called before the first frame update
     void Start()
     {
+     
         rigid.GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
 
+       
+        
+           if(player != null)
+        {
+            Vector3 direction = player.transform.position - transform.position;
+            rigid.velocity = new Vector2(direction.x, direction.y).normalized * force;
 
-        Vector3 direction = player.transform.position - transform.position;
-        rigid.velocity = new Vector2(direction.x, direction.y).normalized * force;
 
 
+            float rot = Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg;
 
-        float rot = Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, rot + 270);
+        }
+           
+        
 
-        transform.rotation = Quaternion.Euler(0,0,rot + 270);
     }
 
     // Update is called once per frame

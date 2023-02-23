@@ -1,14 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class Shooting : MonoBehaviour
 {
     public Transform firepoint;
     public GameObject prefab;
+    public GameObject LaserBeam;
+    public float bulletforce = 20f;
+
     ObjectPool objectpooler;
 
-    public float bulletforce = 20f;
+   [SerializeField] public bool poweredGun = false;
+
+    private int bulletCount = 0;
+  
+
+   
 
 
     private void Start()
@@ -19,20 +28,79 @@ public class Shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+
+
+     
+
+       /* if(Input.GetButtonDown("Jump"))
         {
-            Shoot();
+            ShootLaserBeam();
+        }*/
+
+        if(poweredGun == false)
+        {
+            if (Input.GetButtonDown("Fire1"))
+            {
+                ShootNormalBullets();
+            }
+        }
+        else
+        {
+            if (Input.GetButton("Fire1"))
+            {
+                ShootNormalBullets();
+            }
+        }
+     
+      
+      
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+        if (collision.gameObject.CompareTag("GunPowerUp"))
+        {
+            Debug.Log("powerup unlocked!");
+            Destroy(collision.gameObject);
+
+            poweredGun = true;
+            bulletCount = 0;
+
         }
     }
-
-    void Shoot()
+    void ShootNormalBullets()
     {
 
+
+        
         GameObject bullet = objectpooler.SpawnfromPool("Bullet", firepoint.position, firepoint.rotation);
       //GameObject bullet =  Instantiate(prefab, firepoint.position, firepoint.rotation);
 
       Rigidbody2D rb =  bullet.GetComponent<Rigidbody2D>();
 
         rb.AddForce(firepoint.up * bulletforce, ForceMode2D.Impulse);
+        bulletCount++;
+        Debug.Log(bulletCount);
+
+        if(bulletCount >= 1000)
+        {
+            poweredGun = false;
+        }
+
+
+
+
+    }
+
+    void ShootLaserBeam()
+    {
+
+       /* GameObject bullet2 = objectpooler.SpawnfromPool("LaserBeam", firepoint.position, firepoint.rotation);
+        //GameObject bullet =  Instantiate(prefab, firepoint.position, firepoint.rotation);
+
+        Rigidbody2D rb = bullet2.GetComponent<Rigidbody2D>();
+        bullet2.transform.right = transform.right.normalized;
+
+        rb.AddForce(firepoint.up * bulletforce, ForceMode2D.Impulse);*/
     }
 }

@@ -9,6 +9,8 @@ TagManager:
   - WorldLimit3
   - WorldLimit1
   - Enemy
+  - Projectile
+  - GunPowerUp
   layers:
   - Default
   - TransparentFX

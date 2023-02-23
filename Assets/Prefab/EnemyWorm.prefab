@@ -276,7 +276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 20
   original: {fileID: 7602434000702544079}
-  damage: 1
+  damage: 5
 --- !u!114 &5812331883014084632
 MonoBehaviour:
   m_ObjectHideFlags: 0

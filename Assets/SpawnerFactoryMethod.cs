@@ -28,7 +28,7 @@ public class SpawnerFactoryMethod : MonoBehaviour
                 EnemyFactory.Instance.CreateWorm().transform.position = RandomPosition();
 
             }
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(15);
         }
     }
 

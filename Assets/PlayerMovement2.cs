@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement2 : MonoBehaviour
 {
@@ -9,17 +11,23 @@ public class PlayerMovement2 : MonoBehaviour
     Vector2 movement;
     Vector2 mousePos;
     public Camera myCamera;
+    public float angle;
    
    [SerializeField] private Transform worldlimit0;
     [SerializeField] private Transform worldlimit1;
     [SerializeField] private Transform worldlimitUp;
     [SerializeField] private Transform worldlimitDown;
+    [SerializeField] private Transform StartingPoint;
 
-
+    //private int lives = 3;
+    private void Start()
+    {
+      
+    }
     // Update is called once per frame
     void Update()
     {
-       
+      
 
     }
 
@@ -32,10 +40,11 @@ public class PlayerMovement2 : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * movespeed * Time.fixedDeltaTime);
+     
+       rb.MovePosition(rb.position + movement * movespeed * Time.fixedDeltaTime);
 
         Vector2 lookDir = mousePos - rb.position;
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f ;
+         angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f ;
         rb.rotation = angle;
       
 
@@ -43,18 +52,21 @@ public class PlayerMovement2 : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("player hit");
-
+      
 
         if(collision.gameObject.CompareTag("Projectile"))
         {
-            Destroy(gameObject);
+           
+            //gameObject.transform.position = new Vector3(StartingPoint.position.x,StartingPoint.position.y, StartingPoint.position.z);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
         if(collision.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("RAt infected you!");
+        
+          
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex -1 );
 
-           // Destroy(gameObject);
+
         }
         if (collision.gameObject.CompareTag("WorldLimit"))
         {
@@ -70,12 +82,12 @@ public class PlayerMovement2 : MonoBehaviour
 
         if (collision.gameObject.CompareTag("WorldLimit2"))
         {
-            gameObject.transform.position = Vector3.zero;
+            gameObject.transform.position = new Vector3(StartingPoint.position.x, StartingPoint.position.y, StartingPoint.position.z);
         }
 
         if (collision.gameObject.CompareTag("WorldLimit3"))
         {
-            gameObject.transform.position =Vector3.zero;
+            gameObject.transform.position = new Vector3(StartingPoint.position.x, StartingPoint.position.y, StartingPoint.position.z);
         }
     }
 
