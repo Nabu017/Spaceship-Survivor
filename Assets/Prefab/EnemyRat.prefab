@@ -80,6 +80,7 @@ MonoBehaviour:
   speed: 400
   nextWaypointDistance: 3
   enemy: {fileID: 3485076834518835288}
+  nova: {fileID: 8736356652248508266, guid: d893cebf939ea1249a168b3e9d54e1f3, type: 3}
 --- !u!50 &1042044489344568284
 Rigidbody2D:
   serializedVersion: 4

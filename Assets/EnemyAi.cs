@@ -13,13 +13,15 @@ public class EnemyAi : MonoBehaviour
     Path path;
     int currentWaypoint = 0;
     bool isEndofPath = false;
+    private float magnetspeed = 5f;
 
     public Transform enemy;
     PlayerMovement2 playerdeath;
 
     Seeker seeker;
     Rigidbody2D rb;
-
+   [SerializeField] GameObject nova;
+    
 
     void Start()
     {
@@ -115,6 +117,15 @@ public class EnemyAi : MonoBehaviour
             enemy.localScale = new Vector3(1f, 1f, 1f);
 
 
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Nova"))
+        {
+           
+            gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, nova.transform.position, magnetspeed * Time.deltaTime);
         }
     }
 }

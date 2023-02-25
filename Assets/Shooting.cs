@@ -6,9 +6,11 @@ using Zenject;
 public class Shooting : MonoBehaviour
 {
     public Transform firepoint;
+    public Transform firepointNova;
     public GameObject prefab;
     public GameObject LaserBeam;
     public float bulletforce = 20f;
+    public float SupernovaForce = 30f;
 
     ObjectPool objectpooler;
 
@@ -32,10 +34,10 @@ public class Shooting : MonoBehaviour
 
      
 
-       /* if(Input.GetButtonDown("Jump"))
+        if(Input.GetButtonDown("Jump"))
         {
             ShootLaserBeam();
-        }*/
+        }
 
         if(poweredGun == false)
         {
@@ -95,12 +97,12 @@ public class Shooting : MonoBehaviour
     void ShootLaserBeam()
     {
 
-       /* GameObject bullet2 = objectpooler.SpawnfromPool("LaserBeam", firepoint.position, firepoint.rotation);
+        GameObject bullet2 = objectpooler.SpawnfromPool("LaserBeam", firepointNova.position, firepoint.rotation);
         //GameObject bullet =  Instantiate(prefab, firepoint.position, firepoint.rotation);
 
         Rigidbody2D rb = bullet2.GetComponent<Rigidbody2D>();
-        bullet2.transform.right = transform.right.normalized;
 
-        rb.AddForce(firepoint.up * bulletforce, ForceMode2D.Impulse);*/
+
+        rb.AddForce(firepoint.up * SupernovaForce, ForceMode2D.Force );
     }
 }

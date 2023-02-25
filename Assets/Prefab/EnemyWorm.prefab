@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2086708630979694337}
   m_Layer: 0
   m_Name: EnemyWorm
-  m_TagString: Untagged
+  m_TagString: EnemyWorm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51,7 +51,7 @@ GameObject:
   - component: {fileID: 3326891483539583998}
   m_Layer: 0
   m_Name: boneworm-black
-  m_TagString: Untagged
+  m_TagString: EnemyWorm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -210,6 +210,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: boneworm-black
       objectReference: {fileID: 0}
+    - target: {fileID: 6529464214376800053, guid: 013cac65b53963248bfe254acb2a3464, type: 3}
+      propertyPath: m_TagString
+      value: EnemyWorm
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 013cac65b53963248bfe254acb2a3464, type: 3}
 --- !u!50 &932461496254215493
@@ -321,6 +325,7 @@ MonoBehaviour:
   speed: 300
   nextWaypointDistance: 3
   enemy: {fileID: 7834775547261144328}
+  nova: {fileID: 8736356652248508266, guid: d893cebf939ea1249a168b3e9d54e1f3, type: 3}
 --- !u!114 &3326891483539583998
 MonoBehaviour:
   m_ObjectHideFlags: 0
