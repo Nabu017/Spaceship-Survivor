@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 public class PlayerMovement2 : MonoBehaviour
 {
@@ -12,12 +14,16 @@ public class PlayerMovement2 : MonoBehaviour
     Vector2 mousePos;
     public Camera myCamera;
     public float angle;
-   
+  [SerializeField]  private int Health = 100;
    [SerializeField] private Transform worldlimit0;
     [SerializeField] private Transform worldlimit1;
     [SerializeField] private Transform worldlimitUp;
     [SerializeField] private Transform worldlimitDown;
     [SerializeField] private Transform StartingPoint;
+    public Text healthText;
+    const string placeholder = "Player Health: ";
+
+    
 
     //private int lives = 3;
     private void Start()
@@ -46,6 +52,14 @@ public class PlayerMovement2 : MonoBehaviour
         Vector2 lookDir = mousePos - rb.position;
          angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f ;
         rb.rotation = angle;
+
+        if(Health <= 0)
+        {
+            Destroy(gameObject);
+        }
+
+        healthText.text = placeholder + Health.ToString();
+      
       
 
     }
@@ -56,14 +70,20 @@ public class PlayerMovement2 : MonoBehaviour
 
         if(collision.gameObject.CompareTag("Projectile"))
         {
-           
+
             //gameObject.transform.position = new Vector3(StartingPoint.position.x,StartingPoint.position.y, StartingPoint.position.z);
-           // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            Health -= 10;
+
+            Debug.Log(Health);
+            Destroy(collision.gameObject);
         }
         if(collision.gameObject.CompareTag("Enemy"))
         {
-        
-          
+
+            Health -= 5;
+            Debug.Log(Health);
+            Destroy(collision.gameObject);
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex -1 );
 
 

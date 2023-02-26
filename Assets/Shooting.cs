@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
+using UnityEngine.UI;
 
 public class Shooting : MonoBehaviour
 {
@@ -11,16 +12,18 @@ public class Shooting : MonoBehaviour
     public GameObject LaserBeam;
     public float bulletforce = 20f;
     public float SupernovaForce = 30f;
-    private int novaCount = 0;
+    private int novaCount = 3;
 
     ObjectPool objectpooler;
 
    [SerializeField] public bool poweredGun = false;
 
     private int bulletCount = 0;
-  
+    public Text SupernovaText;
+    const string SupernovaPlaceholder = "SuperNova left : ";
 
-   
+
+
 
 
     private void Start()
@@ -35,9 +38,9 @@ public class Shooting : MonoBehaviour
 
      
 
-        if(Input.GetButtonDown("Jump") && novaCount < 3)
+        if(Input.GetButtonDown("Jump") && novaCount > 0)
         {
-            novaCount++;
+            novaCount--;
             ShootLaserBeam();
         }
 
@@ -58,6 +61,11 @@ public class Shooting : MonoBehaviour
      
       
       
+    }
+
+    private void FixedUpdate()
+    {
+        SupernovaText.text = SupernovaPlaceholder + novaCount.ToString();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -106,5 +114,7 @@ public class Shooting : MonoBehaviour
 
 
         rb.AddForce(firepoint.up * SupernovaForce, ForceMode2D.Force );
+
+        Destroy(bullet2, 15);
     }
 }
