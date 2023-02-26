@@ -58,13 +58,13 @@ public class PlayerMovement2 : MonoBehaviour
         {
            
             //gameObject.transform.position = new Vector3(StartingPoint.position.x,StartingPoint.position.y, StartingPoint.position.z);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+           // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
         if(collision.gameObject.CompareTag("Enemy"))
         {
         
           
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex -1 );
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex -1 );
 
 
         }

@@ -1107,23 +1107,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8129694237695952535, guid: 902119db39f801c4dbf3e56fde865ba0, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8129694237695952535, guid: 902119db39f801c4dbf3e56fde865ba0, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8811311301800301523, guid: 902119db39f801c4dbf3e56fde865ba0, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8811311301800301523, guid: 902119db39f801c4dbf3e56fde865ba0, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8811311301800301523, guid: 902119db39f801c4dbf3e56fde865ba0, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 902119db39f801c4dbf3e56fde865ba0, type: 3}
@@ -1614,7 +1614,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1695603068
 MonoBehaviour:
   m_ObjectHideFlags: 0

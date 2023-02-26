@@ -19,7 +19,10 @@ public class CallMenu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Debug.Log("key pressed");
+            Time.timeScale = 0;
+          
             optionMenu.SetActive(true);
+         
         }
     }
 

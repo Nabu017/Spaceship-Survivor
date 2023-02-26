@@ -86,10 +86,10 @@ public class Shooting : MonoBehaviour
         bulletCount++;
         Debug.Log(bulletCount);
 
-        if(bulletCount >= 1000)
+       /* if(bulletCount >= 1000)
         {
             poweredGun = false;
-        }
+        }*/
 
 
 
