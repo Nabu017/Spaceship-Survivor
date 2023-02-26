@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class Magnet : MonoBehaviour
 {
     public GameObject Nova;
     public float movespeed = 17f;
+    private AudioSource audio;
     // Start is called before the first frame update
     void Start()
     {
+        audio = gameObject.GetComponent<AudioSource>();
+        audio.Play();
         Nova = GameObject.FindGameObjectWithTag("Nova");
     }
 
@@ -17,7 +21,8 @@ public class Magnet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("EnemyWorm"))
+       
+            if (collision.CompareTag("EnemyWorm"))
         {
             
 

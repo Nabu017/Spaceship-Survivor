@@ -11,6 +11,7 @@ public class Shooting : MonoBehaviour
     public GameObject LaserBeam;
     public float bulletforce = 20f;
     public float SupernovaForce = 30f;
+    private int novaCount = 0;
 
     ObjectPool objectpooler;
 
@@ -34,8 +35,9 @@ public class Shooting : MonoBehaviour
 
      
 
-        if(Input.GetButtonDown("Jump"))
+        if(Input.GetButtonDown("Jump") && novaCount < 3)
         {
+            novaCount++;
             ShootLaserBeam();
         }
 

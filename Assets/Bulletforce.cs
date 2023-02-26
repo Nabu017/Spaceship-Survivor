@@ -1,16 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class Bulletforce : MonoBehaviour
 {
     Rigidbody2D rigid;
     public float speed = 20f;
     Worldlimit1position worlimit1;
+    AudioSource audio;
     // Start is called before the first frame update
     void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
+
+        audio = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -28,15 +32,18 @@ public class Bulletforce : MonoBehaviour
         var enemy = collision.GetComponent<RatHealth>();
         if(enemy)
         {
-            
+         
             enemy.Damage();
+        
             Destroy(gameObject);
         }
 
         var enemy2 = collision.GetComponent<WormHealth>();
         if(enemy2)
         {
+            
             enemy2.Damage();
+          
             Destroy(gameObject);
         }
 
