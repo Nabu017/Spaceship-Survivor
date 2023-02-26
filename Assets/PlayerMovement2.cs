@@ -55,7 +55,7 @@ public class PlayerMovement2 : MonoBehaviour
 
         if(Health <= 0)
         {
-            Destroy(gameObject);
+            SceneManager.LoadScene("GameOver");
         }
 
         healthText.text = placeholder + Health.ToString();
