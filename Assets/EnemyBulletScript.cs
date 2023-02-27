@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//sources : https://www.youtube.com/watch?v=--u20SaCCow&t=677s&ab_channel=MoreBBlakeyyy
 public class EnemyBulletScript : MonoBehaviour
 {
 

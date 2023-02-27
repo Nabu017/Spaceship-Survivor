@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 using UnityEngine.UI;
-
+// Sources : Brackeys et Professeur Soumpholphakdy
 public class Shooting : MonoBehaviour
 {
     public Transform firepoint;

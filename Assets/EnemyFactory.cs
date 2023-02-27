@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+// sources : professeur Felix Soumpholphakdy
 public class EnemyFactory : MonoBehaviour
 {
     public static EnemyFactory Instance { get; private set; }
     [SerializeField] GameObject Rat;
     [SerializeField] GameObject Worm;
-
+    ObjectPool objectpooler;
+    private Transform spawnerTransform;
 
 
 
@@ -22,13 +23,19 @@ public class EnemyFactory : MonoBehaviour
             Instance = this;
         }
     }
-  
+    private void Start()
+    {
+        objectpooler = ObjectPool.Instance;
+       
+    }
 
     public GameObject CreateRat()
     {
         GameObject enemyRat = Rat;
-
+       // Rat = objectpooler.SpawnfromPool("Rat", Vector3.zero, Quaternion.identity);
         return Instantiate(enemyRat, Vector3.zero, Quaternion.identity);
+        //return Rat;
+
     }
 
     public GameObject CreateWorm()
@@ -36,5 +43,6 @@ public class EnemyFactory : MonoBehaviour
         GameObject enemyWorm = Worm;
 
         return Instantiate(Worm, Vector3.zero, Quaternion.identity);
+
     }
 }

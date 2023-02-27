@@ -54,7 +54,7 @@ public class EditorMenu : MonoBehaviour
     static void UpdateSceneAssets() 
     {
         
-        if (!AssetDatabase.IsValidFolder(Path.Combine("Assets", "ScriptableObjects"))) ; 
+        if (!AssetDatabase.IsValidFolder(Path.Combine("Assets", "ScriptableObjects"))); 
         {
             AssetDatabase.CreateFolder("Assets", "ScriptableObjects"); 
         } 
