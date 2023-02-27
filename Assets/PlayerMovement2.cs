@@ -4,7 +4,7 @@ using UnityEngine;
 using Zenject;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-//Source : Brackeys
+//Source : https://www.youtube.com/watch?v=LNLVOjbrQj4&t=801s&ab_channel=Brackeys 
 
 public class PlayerMovement2 : MonoBehaviour
 {

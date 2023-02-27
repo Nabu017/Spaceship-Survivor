@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 using System;
-//source : Brackeys
+//source : Brackeys https://www.youtube.com/watch?v=jvtFUfJ6CP8&ab_channel=Brackeys
 public class EnemyAi : MonoBehaviour
 {
     public Transform target;
