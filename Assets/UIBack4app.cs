@@ -13,13 +13,21 @@ public class UIBack4app : MonoBehaviour
 {
     [SerializeField]  TMP_InputField emailinput;
     [SerializeField] TMP_InputField passwordinput;
+    [SerializeField] TMP_InputField emailinput2;
+    [SerializeField] TMP_InputField passwordinput2;
+    private string gmail = "@gmail.com";
+    private string outlook = "@outlook.com";
+    private string hotmail = "@hotmail.com";
+    private string yahoo = "@yahoo.com";
+   
+    private bool contain = false;
 
 
-
-
-
+ 
     public  IEnumerator CreateUser()
     {
+        
+        
         using (var request = new UnityWebRequest("https://parseapi.back4app.com/users", "Post"))
         {
             request.SetRequestHeader("X-Parse-Application-Id", secrets.ApplicationId);
@@ -71,9 +79,46 @@ public class UIBack4app : MonoBehaviour
 
         }
     }
+  
+
+   
     public void CalluserCreation()
     {
-        StartCoroutine(CreateUser());
-        StartCoroutine(verifyUser());
+        Debug.Log(emailinput.text.Contains(gmail));
+        Debug.Log(emailinput.text.Contains(outlook));
+        Debug.Log(emailinput.text.Contains(hotmail));
+        Debug.Log(emailinput.text.Contains(yahoo));
+        if (emailinput.text.Contains(gmail) || emailinput.text.Contains(outlook) || emailinput.text.Contains(hotmail) || emailinput.text.Contains(yahoo))
+        {
+             StartCoroutine(CreateUser());
+             StartCoroutine(verifyUser());
+        }
+        else
+        {
+            Debug.LogError("Email format invalid!");
+        }
+
+    }
+
+    public void CallluserLogin()
+    {
+        StartCoroutine(LoginUser());
+    }
+
+    public IEnumerator LoginUser()
+    {
+        string url = "https://parseapi.back4app.com/login 'username=<USERNAME>' 'password=<PASSWORD>'";
+
+        using(var request = UnityWebRequest.Get(url))
+        {
+            request.SetRequestHeader("X-Parse-Application-Id", secrets.ApplicationId);
+            request.SetRequestHeader("X-Parse-REST-API-Key", secrets.RestApiKey);
+            request.SetRequestHeader("X-Parse-Revocable-Session", "1");
+
+            yield return request.SendWebRequest();
+
+
+           
+        }
     }
 }
