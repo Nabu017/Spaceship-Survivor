@@ -6,6 +6,7 @@ public class RatHealth : MonoBehaviour
 {
 
     [SerializeField] public int hp = 10;
+    enemyKillcounter kc;
 
     // Update is called once per frame
   internal virtual void Damage()
@@ -14,6 +15,8 @@ public class RatHealth : MonoBehaviour
         {
           
             Destroy(gameObject);
+            kc.killcounter++;
+            Debug.Log(kc.killcounter);
         }
     }
 }
