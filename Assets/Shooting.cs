@@ -12,7 +12,7 @@ public class Shooting : MonoBehaviour
     public GameObject LaserBeam;
     public float bulletforce = 20f;
     public float SupernovaForce = 30f;
-    private int novaCount = 3;
+    public int novaCount = 3;
 
     ObjectPool objectpooler;
 
@@ -29,6 +29,7 @@ public class Shooting : MonoBehaviour
     private void Start()
     {
         objectpooler = ObjectPool.Instance;
+        loadShooting();
     }
 
     // Update is called once per frame
@@ -62,7 +63,16 @@ public class Shooting : MonoBehaviour
       
       
     }
-
+    public void saveshooting()
+    {
+        SaveSystem.SaveShooting(this);
+    }
+    public void loadShooting()
+    {
+        PlayerData shootingdata = SaveSystem.LoadPlayer();
+        novaCount = shootingdata.supernova;
+        poweredGun = shootingdata.powerup;
+    }
     private void FixedUpdate()
     {
         SupernovaText.text = SupernovaPlaceholder + novaCount.ToString();

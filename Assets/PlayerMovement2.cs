@@ -14,7 +14,7 @@ public class PlayerMovement2 : MonoBehaviour
     Vector2 mousePos;
     public Camera myCamera;
     public float angle;
-  [SerializeField]  private int Health = 100;
+  [SerializeField]  public int Health = 100;
    [SerializeField] private Transform worldlimit0;
     [SerializeField] private Transform worldlimit1;
     [SerializeField] private Transform worldlimitUp;
@@ -34,7 +34,7 @@ public class PlayerMovement2 : MonoBehaviour
     //private int lives = 3;
     private void Start()
     {
-       
+        loadPlayer();
     }
     // Update is called once per frame
     void Update()
@@ -43,6 +43,17 @@ public class PlayerMovement2 : MonoBehaviour
 
     }
 
+    public void SavePlayer()
+    {
+        SaveSystem.SavePlayer(this);
+    }
+
+    public void loadPlayer()
+    {
+        PlayerData data = SaveSystem.LoadPlayer();
+        Health = data.hp;
+        EnergyCounter = data.energy;
+    }
     public void Movement()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
