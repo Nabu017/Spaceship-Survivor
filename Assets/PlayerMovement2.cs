@@ -22,13 +22,19 @@ public class PlayerMovement2 : MonoBehaviour
     [SerializeField] private Transform StartingPoint;
     public Text healthText;
     const string placeholder = "Player Health: ";
+ public int EnergyCounter = 0;
+    [SerializeField] GameObject EnergyObject;
 
-    
+    public string playername = "Player1";
+
+    public Text KillcounterText;
+    const string placeholder2 = "Energy Found : ";
+   [SerializeField] public RatHealth deathchecker;
 
     //private int lives = 3;
     private void Start()
     {
-      
+       
     }
     // Update is called once per frame
     void Update()
@@ -57,13 +63,14 @@ public class PlayerMovement2 : MonoBehaviour
         {
             SceneManager.LoadScene("GameOver");
         }
-
+     
         healthText.text = placeholder + Health.ToString();
-      
-      
+        KillcounterText.text = placeholder2 + EnergyCounter.ToString();
+
 
     }
     
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
       
@@ -85,6 +92,14 @@ public class PlayerMovement2 : MonoBehaviour
             Debug.Log(Health);
             Destroy(collision.gameObject);
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex -1 );
+
+
+        }
+
+        if(collision.gameObject.CompareTag("Energy"))
+        {
+            Debug.Log("Energy Hit!");
+            EnergyCounter+= 1;
 
 
         }

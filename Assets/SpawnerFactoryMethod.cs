@@ -25,7 +25,7 @@ public class SpawnerFactoryMethod : MonoBehaviour
             for(int i = 0; i < 3; i++)
             {
                EnemyFactory.Instance.CreateRat().transform.position = RandomPosition();
-                EnemyFactory.Instance.CreateWorm().transform.position = RandomPosition();
+               // EnemyFactory.Instance.CreateWorm().transform.position = RandomPosition();
 
             }
             yield return new WaitForSeconds(3);

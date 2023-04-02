@@ -12,15 +12,18 @@ using System;
 
 public class enemyKillcounter : MonoBehaviour
 {
+    public string playername = "player1";
+
     public int killcounter = 0;
-
-    public string playername = "Player1";
-
-
 
     private void Start()
     {
         //StartCoroutine(createKillcounter());
+    }
+
+    private void FixedUpdate()
+    {
+        
     }
     public IEnumerator createKillcounter()
     {

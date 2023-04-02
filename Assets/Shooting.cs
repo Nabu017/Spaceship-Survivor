@@ -92,7 +92,7 @@ public class Shooting : MonoBehaviour
 
         rb.AddForce(firepoint.up * bulletforce, ForceMode2D.Impulse);
         bulletCount++;
-        Debug.Log(bulletCount);
+        //Debug.Log(bulletCount);
 
        /* if(bulletCount >= 1000)
         {

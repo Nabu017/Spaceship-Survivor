@@ -179,6 +179,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4479796419956719475, guid: e0281a6e56f0c5742a5defb87b0dbdd5, type: 3}
+      propertyPath: kc
+      value: 
+      objectReference: {fileID: 4343938589353393391, guid: 78fcacfb2fd4cff4bb8d131b7d4954bf, type: 3}
+    - target: {fileID: 4479796419956719475, guid: e0281a6e56f0c5742a5defb87b0dbdd5, type: 3}
+      propertyPath: Energy
+      value: 
+      objectReference: {fileID: 3219370495965442081, guid: bc4f57289ca4e7a479ebac5fd74a9360, type: 3}
     - target: {fileID: 4479796419956719476, guid: e0281a6e56f0c5742a5defb87b0dbdd5, type: 3}
       propertyPath: m_Name
       value: rat-black
