@@ -54,7 +54,7 @@ public class UIBack4app : MonoBehaviour
 
         
     }
-    public IEnumerator verifyUser()
+    public IEnumerator VerifyUser()
     {
         using (var request = new UnityWebRequest("https://parseapi.back4app.com/verificationEmailRequest", "Post"))
         {
@@ -91,7 +91,7 @@ public class UIBack4app : MonoBehaviour
         if (emailinput.text.Contains(gmail) || emailinput.text.Contains(outlook) || emailinput.text.Contains(hotmail) || emailinput.text.Contains(yahoo))
         {
              StartCoroutine(CreateUser());
-             StartCoroutine(verifyUser());
+             //StartCoroutine(VerifyUser());
         }
         else
         {
@@ -107,18 +107,26 @@ public class UIBack4app : MonoBehaviour
 
     public IEnumerator LoginUser()
     {
-        string url = "https://parseapi.back4app.com/login 'username=<USERNAME>' 'password=<PASSWORD>'";
-
-        using(var request = UnityWebRequest.Get(url))
+        using (var request = new UnityWebRequest("https://parseapi.back4app.com/login", "Post"))
         {
             request.SetRequestHeader("X-Parse-Application-Id", secrets.ApplicationId);
             request.SetRequestHeader("X-Parse-REST-API-Key", secrets.RestApiKey);
             request.SetRequestHeader("X-Parse-Revocable-Session", "1");
+            request.SetRequestHeader("Content-Type", "application/json");
+            var data = new { username = emailinput2.text, password = passwordinput2.text };
+            string json = JsonConvert.SerializeObject(data);
+            request.uploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(json));
+            request.downloadHandler = new DownloadHandlerBuffer();
 
             yield return request.SendWebRequest();
 
 
-           
+            if (request.result != UnityWebRequest.Result.Success)
+            {
+                Debug.LogError(request.error);
+                Debug.Log(emailinput.text + " " + passwordinput.text);
+            }
+            Debug.Log(request.downloadHandler.text);
         }
     }
 }

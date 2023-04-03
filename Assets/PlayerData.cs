@@ -20,6 +20,7 @@ public class PlayerData
     {
         supernova = shooter.novaCount;
         powerup = shooter.poweredGun;
+        Debug.Log(powerup);
     }
 
 

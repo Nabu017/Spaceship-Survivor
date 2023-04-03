@@ -780,8 +780,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   emailinput: {fileID: 1584522807}
   passwordinput: {fileID: 686620846}
-  emailinput2: {fileID: 0}
-  passwordinput2: {fileID: 0}
+  emailinput2: {fileID: 1069998712}
+  passwordinput2: {fileID: 1848655745}
 --- !u!114 &293340434
 MonoBehaviour:
   m_ObjectHideFlags: 0

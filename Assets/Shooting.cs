@@ -72,6 +72,8 @@ public class Shooting : MonoBehaviour
         PlayerData shootingdata = SaveSystem.LoadPlayer();
         novaCount = shootingdata.supernova;
         poweredGun = shootingdata.powerup;
+
+        Debug.Log(poweredGun);
     }
     private void FixedUpdate()
     {
