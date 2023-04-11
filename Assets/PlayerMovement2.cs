@@ -24,6 +24,7 @@ public class PlayerMovement2 : MonoBehaviour
     const string placeholder = "Player Health: ";
  public int EnergyCounter = 0;
     [SerializeField] GameObject EnergyObject;
+  [SerializeField]  SceneLoaderAdressables sceneloader;
 
     public string playername = "Player1";
 
@@ -72,7 +73,9 @@ public class PlayerMovement2 : MonoBehaviour
 
         if(Health <= 0)
         {
-            SceneManager.LoadScene("GameOver");
+           // SceneManager.LoadScene("GameOver");
+            sceneloader.Load("Scene2");
+           
         }
      
         healthText.text = placeholder + Health.ToString();
