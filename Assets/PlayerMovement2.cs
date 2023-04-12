@@ -31,16 +31,18 @@ public class PlayerMovement2 : MonoBehaviour
     public Text KillcounterText;
     const string placeholder2 = "Energy Found : ";
    [SerializeField] public RatHealth deathchecker;
+  
 
     //private int lives = 3;
     private void Start()
     {
         loadPlayer();
+        Debug.Log("Health: " + Health);
     }
     // Update is called once per frame
     void Update()
     {
-      
+     
 
     }
 
@@ -117,57 +119,17 @@ public class PlayerMovement2 : MonoBehaviour
 
 
         }
-      /*  if (collision.gameObject.CompareTag("WorldLimit"))
-        {
-            //gameObject.transform.position = GameObject.FindGameObjectWithTag("WorldLimit1").transform.position ;
-            gameObject.transform.position = new Vector3(worldlimit1.position.x - 2, gameObject.transform.position.y, gameObject.transform.position.z);
-        }
-
-
-        if (collision.gameObject.CompareTag("WorldLimit1"))
-        {
-            gameObject.transform.position = new Vector3(worldlimit0.position.x + 2, gameObject.transform.position.y, gameObject.transform.position.z);
-        }
-
-        if (collision.gameObject.CompareTag("WorldLimit2"))
-        {
-            gameObject.transform.position = new Vector3(StartingPoint.position.x, StartingPoint.position.y, StartingPoint.position.z);
-        }
-
-        if (collision.gameObject.CompareTag("WorldLimit3"))
-        {
-            gameObject.transform.position = new Vector3(StartingPoint.position.x, StartingPoint.position.y, StartingPoint.position.z);
-        }*/
-    }
-
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        /* if(collision.gameObject.CompareTag("WorldLimit"))
-         {
-             //gameObject.transform.position = GameObject.FindGameObjectWithTag("WorldLimit1").transform.position ;
-             gameObject.transform.position = new Vector3(worldlimit1.position.x - 2, gameObject.transform.position.y, gameObject.transform.position.z);
-         }
-
-       if(collision.gameObject.CompareTag("WorldLimit1"))
-         {
-             gameObject.transform.position = new Vector3(worldlimit0.position.x + 2, gameObject.transform.position.y, gameObject.transform.position.z);
-         }*/
-
-        /*if(collision.gameObject.CompareTag("WorldLimit2"))
-        {
-            gameObject.transform.position = new Vector3(worldlimitUp.position.y , gameObject.transform.position.x,gameObject.transform.position.z);
-        }
-        
-         if(collision.gameObject.CompareTag("WorldLimit3"))
-        {
-            gameObject.transform.position = new Vector3(worldlimitDown.position.y,gameObject.transform.position.x,gameObject.transform.position.z);
-        }*/
-
        
-
-
+        
     }
 
+   
+    public void BuyHealthUpgrade()
+    {
+        Health += 100;
+    }
+
+
+   
     
 }

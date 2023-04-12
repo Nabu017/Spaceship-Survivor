@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 // Sources :https://www.youtube.com/watch?v=LNLVOjbrQj4&t=801s&ab_channel=Brackeys et Professeur Soumpholphakdy
 public class Shooting : MonoBehaviour
 {
@@ -21,25 +22,32 @@ public class Shooting : MonoBehaviour
     private int bulletCount = 0;
     public Text SupernovaText;
     const string SupernovaPlaceholder = "SuperNova left : ";
-
-
+    private bool BuyUpgrade = false;
+    Scene currentScene;
+    string scene;
+   
 
 
 
     private void Start()
     {
+        currentScene = SceneManager.GetActiveScene();
+        scene = currentScene.name;
+        Debug.Log(scene);
         objectpooler = ObjectPool.Instance;
-        loadShooting();
+        //loadShooting();
+        Debug.Log("Nova count : " + novaCount);
     }
 
     // Update is called once per frame
     void Update()
     {
+       
 
 
-     
 
-        if(Input.GetButtonDown("Jump") && novaCount > 0)
+
+        if (Input.GetButtonDown("Jump") && novaCount > 0 && scene != "GameHub")
         {
             novaCount--;
             ShootLaserBeam();
@@ -47,14 +55,14 @@ public class Shooting : MonoBehaviour
 
         if(poweredGun == false)
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("Fire1") && scene != "GameHub")
             {
                 ShootNormalBullets();
             }
         }
         else
         {
-            if (Input.GetButton("Fire1"))
+            if (Input.GetButton("Fire1") && scene != "GameHub")
             {
                 ShootNormalBullets();
             }
@@ -91,6 +99,7 @@ public class Shooting : MonoBehaviour
             bulletCount = 0;
 
         }
+       
     }
     void ShootNormalBullets()
     {
@@ -115,7 +124,7 @@ public class Shooting : MonoBehaviour
 
 
     }
-
+    
     void ShootLaserBeam()
     {
 
@@ -129,4 +138,17 @@ public class Shooting : MonoBehaviour
 
         Destroy(bullet2, 15);
     }
+
+
+
+
+  public  void BuyUpgradeNova()
+    {
+        novaCount++;
+        Debug.Log("Nova count : " + novaCount);
+
+    }
+
+
+    
 }
