@@ -21,6 +21,8 @@ public class PlayerMovement2 : MonoBehaviour
     [SerializeField] private Transform worldlimitDown;
     [SerializeField] private Transform StartingPoint;
     public Text healthText;
+    public int totalHealth;
+    public const int  startinghealth = 500;
     const string placeholder = "Player Health: ";
  public int EnergyCounter = 0;
     [SerializeField] GameObject EnergyObject;
@@ -36,6 +38,8 @@ public class PlayerMovement2 : MonoBehaviour
     //private int lives = 3;
     private void Start()
     {
+
+        Health = totalHealth;
         loadPlayer();
         Debug.Log("Health: " + Health);
     }
@@ -75,7 +79,8 @@ public class PlayerMovement2 : MonoBehaviour
 
         if(Health <= 0)
         {
-           // SceneManager.LoadScene("GameOver");
+            // SceneManager.LoadScene("GameOver");
+            SavePlayer();
             sceneloader.Load("Scene2");
            
         }

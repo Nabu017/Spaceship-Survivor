@@ -12,7 +12,7 @@ public class PlayerData
 
     public PlayerData(PlayerMovement2 player)
     {
-        hp = player.Health;
+        hp = player.totalHealth;
         energy = player.EnergyCounter;
     }
     
