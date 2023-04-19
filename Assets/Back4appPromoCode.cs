@@ -87,18 +87,51 @@ public class Back4appPromoCode : MonoBehaviour
                 string code = jObject["results"][0]["PromoCode"].ToString();
                 string code2 = jObject["results"][0]["PromoCodeType"].ToString();
                 string code3 = jObject["results"][0]["IsRedeemed"].ToString();
+                string code4 = jObject["results"][0]["objectId"].ToString();
 
                 //var matches = Regex.Matches(request.downloadHandler.text, "\"PromoCode\":(\\d+)", RegexOptions.Multiline);
-             
+
                 // Debug.Log(code);
-                // Debug.Log(code2);
-                //Debug.Log(code3);
-                if(promocodeInput.text == code)
+                 //Debug.Log(code2);
+                 //Debug.Log(code3);
+                if (promocodeInput.text == code && code3 == "False")
                 {
                     Debug.Log("code is valid !" + " " + "promoType = " + code2);
+                    Debug.Log("objectId " + code4);
+
+                    string url2 = "https://parseapi.back4app.com/classes/PromoCodes/" + code4 + "";
+                    var data = new { IsRedeemed = true };
+                    string json = JsonConvert.SerializeObject(data);
+
+
+                    using (var request2 = UnityWebRequest.Put(url2, json))
+                    {
+                        request2.SetRequestHeader("X-Parse-Application-Id", secrets.ApplicationId);
+                        request2.SetRequestHeader("X-Parse-REST-API-Key", secrets.RestApiKey);
+
+
+
+                        request2.downloadHandler = new DownloadHandlerBuffer();
+                        yield return request2.SendWebRequest();
+
+                        if (request2.result != UnityWebRequest.Result.Success)
+                        {
+                            Debug.LogError(request2.error);
+                        }
+                        Debug.Log(request2.error);
+                    }
 
                     break;
+
                 }
+                else if(promocodeInput.text == code && code3 == "True")
+                {
+                    Debug.Log("The code entered has already been redeemed!");
+                    break;
+                }
+                
+             
+                
                
             }
         }
