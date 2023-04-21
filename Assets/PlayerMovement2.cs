@@ -33,7 +33,7 @@ public class PlayerMovement2 : MonoBehaviour
     public Text KillcounterText;
     const string placeholder2 = "Energy Found : ";
    [SerializeField] public RatHealth deathchecker;
-  
+    private int BossDamage;
 
     //private int lives = 3;
     private void Start()
@@ -128,7 +128,15 @@ public class PlayerMovement2 : MonoBehaviour
         {
             Debug.Log("The Boss is here!");
         }
-        
+        if(collision.gameObject.CompareTag("BossBullet"))
+        {
+            BossDamage = Random.RandomRange(20, 100);
+            Debug.Log("Boss damage : " + BossDamage);
+            Health -= BossDamage;
+            
+
+
+        }
     }
 
    

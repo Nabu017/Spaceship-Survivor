@@ -16,4 +16,12 @@ public class BossHealth : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+  internal virtual  void SuperNovaDamage()
+    {
+        if (--hp <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 }

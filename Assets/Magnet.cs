@@ -8,6 +8,7 @@ public class Magnet : MonoBehaviour
     public GameObject Nova;
     public float movespeed = 17f;
     private AudioSource audio;
+   [SerializeField] ProxyBoss damage;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +38,14 @@ public class Magnet : MonoBehaviour
             Destroy(collision.gameObject);
         }
 
+        var enemy = collision.GetComponent<BossHealth>();
+        if (enemy)
+        {
+
+           
+            enemy.SuperNovaDamage();
+            Destroy(gameObject,5f);
+        }
     }
 }
 
