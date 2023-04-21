@@ -130,7 +130,7 @@ public class PlayerMovement2 : MonoBehaviour
         }
         if(collision.gameObject.CompareTag("BossBullet"))
         {
-            BossDamage = Random.RandomRange(20, 100);
+            BossDamage = Random.Range(20, 100);
             Debug.Log("Boss damage : " + BossDamage);
             Health -= BossDamage;
             
