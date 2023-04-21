@@ -4,10 +4,21 @@ using UnityEngine;
 
 public class BossHealth : MonoBehaviour
 {
-    public int hp = 5000;
+    public int hp = 100000;
+
+    public HealthBar healthbar;
 
 
 
+    private void Start()
+    {
+        healthbar.SetMaxHealth(hp);
+    }
+
+    private void Update()
+    {
+        healthbar.SetHealth(hp);
+    }
 
     internal virtual void Damage()
     {

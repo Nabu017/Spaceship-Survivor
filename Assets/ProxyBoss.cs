@@ -7,12 +7,14 @@ public class ProxyBoss : BossHealth
     [SerializeField] BossHealth original;
     [SerializeField] public int damage = 1;
     [SerializeField] public int supernovaDamage = 1;
-
+ 
     internal override void Damage()
     {
         for (int i = 0; i < damage; i++)
         {
             original.Damage();
+            
+            Debug.Log(original.hp);
         }
     }
 
@@ -21,6 +23,7 @@ public class ProxyBoss : BossHealth
         for (int i = 0; i < supernovaDamage; i++)
         {
             original.SuperNovaDamage();
+            Debug.Log(original.hp);
         }
     }
 }
