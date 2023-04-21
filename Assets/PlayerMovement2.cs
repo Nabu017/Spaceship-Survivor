@@ -124,7 +124,10 @@ public class PlayerMovement2 : MonoBehaviour
 
 
         }
-       
+       if(collision.gameObject.CompareTag("Boss"))
+        {
+            Debug.Log("The Boss is here!");
+        }
         
     }
 

@@ -15,6 +15,7 @@ TagManager:
   - EnemyWorm
   - Energy
   - hubNova
+  - Boss
   layers:
   - Default
   - TransparentFX

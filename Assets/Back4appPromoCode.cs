@@ -129,6 +129,11 @@ public class Back4appPromoCode : MonoBehaviour
                     Debug.Log("The code entered has already been redeemed!");
                     break;
                 }
+                else if(promocodeInput.text != code && i == 99)
+                {
+                    Debug.Log("The code entered is invalid!");
+                    break;
+                }
                 
              
                 
