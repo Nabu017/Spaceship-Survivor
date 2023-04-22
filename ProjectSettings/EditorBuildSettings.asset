@@ -17,8 +17,11 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/GameOver.unity
     guid: 56c3dc76e53f8924dbce7672ac564243
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/BossScene.unity
     guid: b9a2fe1248c82d245b47a38a5635b64c
+  - enabled: 1
+    path: Assets/Scenes/GameWonScreen.unity
+    guid: b821acea6b7cf2a48b3367a9620c8d30
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: fa2ad6ab5ecb7734d821fa6df6132eef, type: 2}

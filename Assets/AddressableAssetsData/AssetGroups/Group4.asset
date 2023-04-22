@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Group4
+  m_EditorClassIdentifier: 
+  m_GroupName: Group4
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 75791e544fe421643b686c1e402b5f56
+  m_SerializeEntries:
+  - m_GUID: b9a2fe1248c82d245b47a38a5635b64c
+    m_Address: BossScene
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Scene4
+  - m_GUID: 04f264d606df3d74c95776972e5c4081
+    m_Address: GameBossScene 1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Scene4
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: df601692270ebba4ea2482257ebe5e10, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: eab514bb86af12b4a8a050d57d0264bc, type: 2}
+    - {fileID: 11400000, guid: e865aa95536a1ca4bb5f3bc46fa9cde2, type: 2}

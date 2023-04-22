@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 public class BossHealth : MonoBehaviour
 {
     public int hp = 100000;
@@ -9,7 +10,7 @@ public class BossHealth : MonoBehaviour
     public HealthBar healthbar;
 
     const string placeholder = "/100000";
-     
+    [SerializeField] SceneLoaderAdressables sceneloader;
 
     private void Start()
     {
@@ -29,7 +30,10 @@ public class BossHealth : MonoBehaviour
         if(--hp <= 0)
         {
             HealthText.text = "0"+ placeholder;
+     
             Destroy(gameObject);
+           
+
         }
     }
 
@@ -38,7 +42,9 @@ public class BossHealth : MonoBehaviour
         if (--hp <= 0)
         {
             HealthText.text = "0" + placeholder;
+  
             Destroy(gameObject);
+            
         }
     }
 }
