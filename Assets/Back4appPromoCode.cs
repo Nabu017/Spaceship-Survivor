@@ -13,6 +13,7 @@ using System;
 using Newtonsoft.Json.Linq;
 public class Back4appPromoCode : MonoBehaviour
 {
+    // source : https://stackoverflow.com/questions/1344221/how-can-i-generate-random-alphanumeric-strings
     string randomString;
     [SerializeField] TMP_InputField promocodeInput;
     string promoCodeType;

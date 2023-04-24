@@ -6,7 +6,8 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public static class SaveSystem 
 {
-   public static void SavePlayer(PlayerMovement2 player)
+    // sources : https://www.youtube.com/watch?v=XOjd_qU2Ido&t=5s&ab_channel=Brackeys
+    public static void SavePlayer(PlayerMovement2 player)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/player.txt";

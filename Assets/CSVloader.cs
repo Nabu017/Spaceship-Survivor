@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 public class CSVloader
 {
-
+    //sources : https://www.youtube.com/watch?v=c-dzg4M20wY&t=142s&ab_channel=GameDevGuide
     private TextAsset csvFile;
     private char lineseparator = '\n';
     private char surround = '"';

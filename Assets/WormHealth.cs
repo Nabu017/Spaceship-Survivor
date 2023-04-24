@@ -5,7 +5,8 @@ using UnityEngine;
 public class WormHealth : MonoBehaviour
 {
    [SerializeField] public int hp = 20;
-    enemyKillcounter kc;
+    [SerializeField] GameObject Energy;
+
 
 
 
@@ -13,6 +14,7 @@ public class WormHealth : MonoBehaviour
     {
         if(--hp <= 0)
         {
+            Instantiate(Energy, gameObject.transform.position, Quaternion.identity);
             Destroy(gameObject);
     
         }

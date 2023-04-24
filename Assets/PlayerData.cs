@@ -4,6 +4,7 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerData 
 {
+    // sources : https://www.youtube.com/watch?v=XOjd_qU2Ido&t=5s&ab_channel=Brackeys
     public int hp;
     public int energy;
     public int supernova;

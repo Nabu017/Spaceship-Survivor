@@ -266,6 +266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 20
+  Energy: {fileID: 3219370495965442081, guid: bc4f57289ca4e7a479ebac5fd74a9360, type: 3}
 --- !u!114 &8185379446255197034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,6 +280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 20
+  Energy: {fileID: 0}
   original: {fileID: 7602434000702544079}
   damage: 5
 --- !u!114 &5812331883014084632

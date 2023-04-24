@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class UiController : MonoBehaviour
 {
+    //sources : Aide de l'élève Jawhar El Harrak El Yousfi
     string language = "fr";
     // Start is called before the first frame update
     void Start()
